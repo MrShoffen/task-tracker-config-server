@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: task-tracker-config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${GITHUB_REPO}
+          username: ${GITHUB_USERNAME}
+          password: ${GITHUB_KEY}
+          clone-on-start: true
+          default-label: main
+
+server:
+  port: 8012
+
+encrypt:
+  key: ${ENCRYPTION_KEY}
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: busrefresh
+#app:
+#  security-users:
+#    admin:
+#      name: admin
+#      password: 123456789
+#      role: ADMINk
+#    client:
+#      name: client
+#      password: 123456789
+#      role: CLIENT
+

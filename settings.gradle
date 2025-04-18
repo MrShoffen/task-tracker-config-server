@@ -1,0 +1,21 @@
+rootProject.name = 'task-tracker-config-server'
+
+dependencyResolutionManagement {
+
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/MrShoffen/task-tracker-dependencies-versions")
+            credentials {
+                username = "MrShoffen"
+                //токен с правом только на скачивание пакетов. Что-то запушить с ним или сломать пакет - не получится ;)
+                password = "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"
+            }
+        }
+    }
+
+    versionCatalogs {
+        libs {
+            from('org.mrshoffen.tasktracker:libs-version-catalog:1.0.1')
+        }
+    }
+}
