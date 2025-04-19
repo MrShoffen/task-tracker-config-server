@@ -1,5 +1,8 @@
 name: First Workflow
-on: [ push ]
+on:
+  push:
+    tags:
+      - 'image-release'
 
 jobs:
   run-first-command:
