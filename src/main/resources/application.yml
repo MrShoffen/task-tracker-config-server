@@ -9,6 +9,7 @@ spring:
           uri: ${GITHUB_REPO}
           clone-on-start: true
           default-label: main
+          skip-ssl-validation: true
 
 server:
   port: 8012
