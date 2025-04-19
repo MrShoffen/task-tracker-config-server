@@ -13,18 +13,11 @@ RUN $JAVA_HOME/bin/jlink \
          --compress=2 \
          --output jdk
 
-FROM debian:stable-slim
+FROM debian:latest
 
 ARG BUILD_PATH=/opt/build
 ENV JAVA_HOME=/opt/jdk
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
-
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    ca-certificates \
-    openssl && \
-    update-ca-certificates --fresh
-
 
 
 RUN groupadd --gid 1000 spring-app \
