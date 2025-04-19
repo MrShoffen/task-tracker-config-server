@@ -1,8 +1,5 @@
 name: First Workflow
-on:
-  push:
-    tags:
-      - 'image-release-*'
+on: push
 
 jobs:
   run-first-command:
@@ -16,5 +13,5 @@ jobs:
           npm -v
       - name: Command in Multiline 2
         run: |
-          node -v
-          npm -v          
+          pwd
+          ls -a
