@@ -7,6 +7,8 @@ on: push
 jobs:
   run-first-command:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
       - name: Copy Files
         run: |
@@ -17,6 +19,9 @@ jobs:
           ls -a
       - name: Build jar
         run: |
+          export GITHUB_USERNAME=$GITHUB_ACTOR
+          export GITHUB_PACKAGE_KEY=${{secrets.GITHUB_TOKEN}}
+        
           chmod +x gradlew
           ./gradlew bootJar
           ls -a
