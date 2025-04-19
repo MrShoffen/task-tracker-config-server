@@ -7,11 +7,9 @@ jobs:
     steps:
       - name: Display text
         run: echo "Some text"
-      - name: Command in Multiline
-        run: |
-          node -v
-          npm -v
-      - name: Command in Multiline 2
+
+      - uses: actions/checkout@v4
+
+      - name: List files
         run: |
           pwd
-          ls -a
