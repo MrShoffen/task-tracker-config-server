@@ -18,6 +18,8 @@ server:
 encrypt:
   key: ${ENCRYPTION_KEY}
 
+
+#test
 #management:
 #  endpoints:
 #    web:
