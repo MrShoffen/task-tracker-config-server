@@ -8,8 +8,14 @@ jobs:
       - name: Display text
         run: echo "Some text"
 
-      - uses: actions/checkout@v4
+#      - uses: actions/checkout@v4
 
+      - name: Copy Files
+        run: |
+          git init
+          git remote add origin https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git
+          git fetch origin
+          git checkout main
       - name: List files
         run: |
-          pwd
+          ls -a
