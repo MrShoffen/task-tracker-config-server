@@ -10,7 +10,6 @@ jobs:
     permissions:
       packages: write
     steps:
-      -
       - name: Copy Files
         run: |
           git init
