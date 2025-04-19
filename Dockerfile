@@ -19,17 +19,7 @@ ARG BUILD_PATH=/opt/build
 ENV JAVA_HOME=/opt/jdk
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    ca-certificates \
-    openssl && \
-    update-ca-certificates --fresh && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN mkdir -p ${JAVA_HOME}/lib/security && \
-    ln -s /etc/ssl/certs/java/cacerts ${JAVA_HOME}/lib/security/cacerts
-
-
+RUN apt-get install -y ca-certificates
 
 RUN groupadd --gid 1000 spring-app \
   && useradd --uid 1000 --gid spring-app --shell /bin/bash --create-home spring-app
