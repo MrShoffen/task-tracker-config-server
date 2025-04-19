@@ -2,8 +2,7 @@ name: First Workflow
 on:
   push:
     tags:
-      - 'image-release'
-      -
+      - 'image-release-*'
 
 jobs:
   run-first-command:
