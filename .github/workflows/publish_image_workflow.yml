@@ -1,11 +1,11 @@
 name: First Workflow
-on: push
-#  push:
-#    branches:
-#      - 'release/**'
+on:
+  push:
+    branches:
+      - 'release/**'
 
 jobs:
-  run-first-command:
+  push-docker-image:
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -35,6 +35,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build -t mrshoffen/task-tracker-config-server:1 .
+          docker build -t mrshoffen/task-tracker-config-server:latest .
           docker images
-          docker push mrshoffen/task-tracker-config-server:1
+          docker push mrshoffen/task-tracker-config-server:latest
