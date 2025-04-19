@@ -6,7 +6,7 @@ COPY ./build/libs/*.jar ./application.jar
 
 RUN java -Djarmode=layertools -jar application.jar extract
 RUN $JAVA_HOME/bin/jlink \
-         --add-modules `jdeps --ignore-missing-deps -q -recursive --multi-release ${RELEASE} --print-module-deps -cp 'dependencies/BOOT-INF/lib/*' application.jar`,jdk.crypto.ec,jdk.crypto.cryptoki \
+         --add-modules `jdeps --ignore-missing-deps -q -recursive --multi-release ${RELEASE} --print-module-deps -cp 'dependencies/BOOT-INF/lib/*' application.jar`,jdk.crypto.ec \
          --strip-debug \
          --no-man-pages \
          --no-header-files \
@@ -19,14 +19,7 @@ ARG BUILD_PATH=/opt/build
 ENV JAVA_HOME=/opt/jdk
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    ca-certificates \
-    openssl && \
-    update-ca-certificates --fresh
 
-RUN mkdir -p ${JAVA_HOME}/lib/security && \
-    ln -s /etc/ssl/certs/java/cacerts ${JAVA_HOME}/lib/security/cacerts
 
 
 
