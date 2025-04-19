@@ -1,0 +1,22 @@
+name: First Workflow
+on: push
+#  push:
+#    branches:
+#      - 'release/**'
+
+jobs:
+  run-first-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy Files
+        run: |
+          git init
+          git remote add origin https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git
+          git fetch origin
+          git checkout master
+          cd task-tracker-config-server/
+          ls -a
+      - name: Build jar
+        run: |
+          chmod+x gradlew
+          ./gradlew bootJar

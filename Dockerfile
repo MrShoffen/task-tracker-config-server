@@ -19,10 +19,6 @@ ARG BUILD_PATH=/opt/build
 ENV JAVA_HOME=/opt/jdk
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
-
-
-
-
 RUN groupadd --gid 1000 spring-app \
   && useradd --uid 1000 --gid spring-app --shell /bin/bash --create-home spring-app
 
