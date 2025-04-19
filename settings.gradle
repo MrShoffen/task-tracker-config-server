@@ -6,9 +6,8 @@ dependencyResolutionManagement {
         maven {
             url = uri("https://maven.pkg.github.com/MrShoffen/task-tracker-dependencies-versions")
             credentials {
-                username = "MrShoffen"
-                //токен с правом только на скачивание пакетов. Что-то запушить с ним или сломать пакет - не получится ;)
-                password = "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"
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_PACKAGE_KEY")
             }
         }
     }
