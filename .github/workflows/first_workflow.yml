@@ -9,7 +9,6 @@ jobs:
     steps:
       - name: Display text
         run: echo "Some text"
-
       - name: Command in Multiline
         run: |
           node -v
