@@ -13,7 +13,13 @@ RUN $JAVA_HOME/bin/jlink \
          --compress=2 \
          --output jdk
 
-FROM debian:latest
+
+FROM alpine AS certs
+RUN apk add --no-cache ca-certificates
+
+FROM debian:stable-slim
+
+COPY --from=certs /etc/ssl/certs /etc/ssl/certs
 
 ARG BUILD_PATH=/opt/build
 ENV JAVA_HOME=/opt/jdk
