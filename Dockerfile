@@ -13,7 +13,7 @@ RUN $JAVA_HOME/bin/jlink \
          --compress=2 \
          --output jdk
 
-FROM alpine:latest
+FROM alpine:stable-slim
 
 ARG BUILD_PATH=/opt/build
 ENV JAVA_HOME=/opt/jdk
