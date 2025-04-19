@@ -3,7 +3,6 @@ on:
   push:
     tags:
       - 'image-release'
-
 jobs:
   run-first-command:
     runs-on: ubuntu-latest
