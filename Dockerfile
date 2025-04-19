@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17 as app-build
+FROM eclipse-temurin:21 as app-build
 ENV RELEASE=21
 
 WORKDIR /opt/build
