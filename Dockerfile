@@ -14,16 +14,14 @@ RUN $JAVA_HOME/bin/jlink \
          --output jdk
 
 
-FROM alpine AS certs
-RUN apk add --no-cache ca-certificates
 
-FROM debian:stable-slim
 
-COPY --from=certs /etc/ssl/certs /etc/ssl/certs
+FROM eclipse-temurin:21
+
 
 ARG BUILD_PATH=/opt/build
-ENV JAVA_HOME=/opt/jdk
-ENV PATH="${JAVA_HOME}/bin:${PATH}"
+#ENV JAVA_HOME=/opt/jdk
+#ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 
 RUN groupadd --gid 1000 spring-app \
