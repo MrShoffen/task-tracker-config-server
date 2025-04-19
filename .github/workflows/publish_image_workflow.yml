@@ -17,5 +17,6 @@ jobs:
           ls -a
       - name: Build jar
         run: |
-          chmod+x gradlew
+          chmod +x gradlew
           ./gradlew bootJar
+          ls -a
