@@ -17,7 +17,7 @@ FROM debian:stable-slim
 
 ARG BUILD_PATH=/opt/build
 ENV JAVA_HOME=/opt/jdk
-ENV PATH "${JAVA_HOME}/bin:${PATH}"
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 RUN groupadd --gid 1000 spring-app \
   && useradd --uid 1000 --gid spring-app --shell /bin/bash --create-home spring-app
@@ -30,4 +30,4 @@ COPY --from=app-build $BUILD_PATH/spring-boot-loader/ ./
 COPY --from=app-build $BUILD_PATH/dependencies/ ./
 COPY --from=app-build $BUILD_PATH/application/ ./
 
-ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]
