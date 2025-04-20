@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: kafka-user
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        bootstrap: true
+        git:
+          uri: ${GITHUB_REPO}
+          default-label: main
