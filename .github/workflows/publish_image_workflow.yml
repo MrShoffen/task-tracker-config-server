@@ -35,6 +35,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build -t mrshoffen/task-tracker-config-server:latest .
+          docker build  -e GITHUB_USERNAME=$GITHUB_ACTOR -e GITHUB_PACKAGE_KEY=${{secrets.GITHUB_TOKEN}} -t mrshoffen/task-tracker-config-server:latest .
           docker images
           docker push mrshoffen/task-tracker-config-server:latest
