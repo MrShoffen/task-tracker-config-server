@@ -18,15 +18,6 @@ jobs:
           git checkout master
           ls -a
 
-#      - name: Build jar
-#        run: |
-#          export GITHUB_USERNAME=$GITHUB_ACTOR
-#          export GITHUB_PACKAGE_KEY=${{secrets.GITHUB_TOKEN}}
-#
-#          chmod +x gradlew
-#          ./gradlew bootJar
-#          ls -a
-
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -35,6 +26,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build  -e GITHUB_USERNAME=$GITHUB_ACTOR -e GITHUB_PACKAGE_KEY=${{secrets.GITHUB_TOKEN}} -t mrshoffen/task-tracker-config-server:latest .
+          docker build -t mrshoffen/task-tracker-config-server:latest .
           docker images
           docker push mrshoffen/task-tracker-config-server:latest

@@ -2,12 +2,15 @@ FROM eclipse-temurin:21 as app-build
 ENV RELEASE=21
 
 WORKDIR /opt/build
+
 COPY . .
 
 RUN chmod +x gradlew \
 && ./gradlew bootJar --no-daemon \
 && cp ./build/libs/*.jar ./application.jar \
-&& java -Djarmode=layertools -jar application.jar extract \
+&& ls -a
+
+RUN java -Djarmode=layertools -jar application.jar extract
 
 RUN $JAVA_HOME/bin/jlink \
          --add-modules `jdeps --ignore-missing-deps -q -recursive --multi-release ${RELEASE} --print-module-deps -cp 'dependencies/BOOT-INF/lib/*' application.jar`,jdk.crypto.ec \
