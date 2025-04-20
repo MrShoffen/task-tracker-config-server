@@ -29,14 +29,4 @@ encrypt:
 #    web:
 #      exposure:
 #        include: busrefresh
-#app:
-#  security-users:
-#    admin:
-#      name: admin
-#      password: 123456789
-#      role: ADMINk
-#    client:
-#      name: client
-#      password: 123456789
-#      role: CLIENT
 

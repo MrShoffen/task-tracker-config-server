@@ -1,4 +1,4 @@
-name: First Workflow
+name: Publish Docker Image
 on:
   push:
     branches:
@@ -18,14 +18,14 @@ jobs:
           git checkout master
           ls -a
 
-      - name: Build jar
-        run: |
-          export GITHUB_USERNAME=$GITHUB_ACTOR
-          export GITHUB_PACKAGE_KEY=${{secrets.GITHUB_TOKEN}}
-          
-          chmod +x gradlew
-          ./gradlew bootJar
-          ls -a
+#      - name: Build jar
+#        run: |
+#          export GITHUB_USERNAME=$GITHUB_ACTOR
+#          export GITHUB_PACKAGE_KEY=${{secrets.GITHUB_TOKEN}}
+#
+#          chmod +x gradlew
+#          ./gradlew bootJar
+#          ls -a
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
