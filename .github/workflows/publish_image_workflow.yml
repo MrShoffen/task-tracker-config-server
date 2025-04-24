@@ -6,6 +6,10 @@ on:
     paths:
       - 'build.gradle'
 
+permissions:
+  contents: write
+
+
 jobs:
   push-docker-image:
     runs-on: ubuntu-latest
