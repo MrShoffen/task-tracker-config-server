@@ -9,12 +9,9 @@ on:
 permissions:
   contents: write
 
-
 jobs:
   push-docker-image:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
     steps:
       - name: Copy Files
         run: |
