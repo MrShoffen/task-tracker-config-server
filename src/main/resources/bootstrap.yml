@@ -10,3 +10,6 @@ spring:
         git:
           uri: ${GITHUB_REPO}
           default-label: main
+
+encrypt:
+  key: ${ENCRYPTION_KEY}
