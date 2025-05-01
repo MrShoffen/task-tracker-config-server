@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    implementation platform('com.github.MrShoffen:task-tracker-dependencies-versions:1.5.4')
+    implementation platform('com.github.MrShoffen:task-tracker-dependencies-versions:1.6.0')
 
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-security'
